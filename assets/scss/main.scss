@@ -5,6 +5,11 @@ $gray: #686868;
 $light-gray: #e5e5e5;
 $white: #fbfbfb;
 $fc: #43c160;
+$azure: #209cee;
+$light-azure: #def0fd;
+$yellow: #edc43c;
+$light-yellow: #f5ecce;
+
 $title: 'Montserrat';
 $body: 'Work Sans';
 $fs-small: 0.875rem;
@@ -279,11 +284,11 @@ h6 {
     display: block;
     margin: 1rem auto;
     font-size: $fs-small;
-    color: #888;
+    color: $gray;
   }
 
   .post-line {
-    border-top: 0.4rem solid #353535;
+    border-top: 0.4rem solid $black;
     display: block;
     margin: 0 auto;
     width: 4rem;
@@ -301,20 +306,20 @@ h6 {
 
   .post-box-info {
     @extend %box;
-    background-color: #def0fd;
-    border-left: 5px solid #209cee;
+    background-color: $light-azure;
+    border-left: 5px solid $azure;
   }
 
   .post-box-warning {
     @extend %box;
-    background-color: #F5ECCE;
-    border-left: 5px solid #edc43c;
+    background-color: $light-yellow;
+    border-left: 5px solid $yellow;
   }
 
   .post-footer {
     @extend %box;
-    background-color: #F5ECCE;
-    border-left: 5px solid #edc43c;
+    background-color: $light-yellow;
+    border-left: 5px solid $yellow;
 
     h6 {
       margin-bottom: 0;
