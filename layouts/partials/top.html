@@ -23,8 +23,8 @@
     {{- end }}
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Arvo:400,700">
-    <link rel="stylesheet" href="{{ "css/highlight.css" | relURL }}">
-    <link rel="stylesheet" href="{{ "css/journal.css" | relURL }}">
+    {{ $styles := resources.Get "scss/main.scss" | toCSS (dict "targetPath" "css/main.css" "enableSourceMap" true) | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
     <link href="{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
 
   </head>
