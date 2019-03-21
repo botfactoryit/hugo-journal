@@ -1,0 +1,43 @@
+{{ partial "top.html" . }}
+
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">{{ .Title }}</h1>
+      <span class="post-line"></span>
+      <span class="post-date">
+        aggiornato il
+        <time datetime="{{ .Lastmod.Format "2006-01-02 15:04:05 MST" }}">
+          {{ .Lastmod.Format "02 january 2006" }}
+        </time>
+        {{ if .Params.authors }}
+        - di
+        {{ $authorLen := len .Params.authors }}
+        <span itemprop="author">
+          {{ range $k, $v := .Params.authors }}
+          {{- $v -}}
+          {{- if lt $k (sub $authorLen 1) -}}, {{ end }}
+          {{ end }}
+        </span>
+        {{ end }}
+      </span>
+    </header>
+
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+
+    <div class="post-box-info" style="border-radius: 8px; border: 0">
+      Vedi anche <a href="" style="font-weight: 400">Copertura VULA</a>
+    </div>
+
+    <div class="post-footer">
+      <h6>❤️ Questo articolo ti ha aiutato?</h6>
+      <p>aaa</p>
+
+      <h6>❓ Hai qualche dubbio?</h6>
+      <p>bbb</p>
+    </div>
+
+  </article>
+
+{{ partial "bottom.html" . }}

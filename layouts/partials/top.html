@@ -3,12 +3,10 @@
 
   <head>
     <meta charset="utf-8">
-    {{ .Hugo.Generator }}
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="{{ .Site.Author.name }}">
-    <meta property="og:url" content="{{ .Permalink }}">
+    <link rel="canonical" href="{{ .Permalink }}">
 
     {{ if .IsHome -}}
     <title>{{ .Site.Title }}</title>
@@ -17,12 +15,23 @@
     <meta name="description" content="{{ .Site.Params.description }}">
     {{- else -}}
     <title>{{ .Title }} - {{ .Site.Title }}</title>
+    <meta name="description" content="{{ .Description }}">
     <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
     <meta property="og:type" content="article">
-    <meta name="description" content="{{ .Description }}">
+    <meta property="og:description" content="{{ .Description }}">
     {{- end }}
+    <meta property="og:url" content="{{ .Permalink }}">
+    {{- if .IsPage }}
+    {{- if not .PublishDate.IsZero }}
+    <meta property="article:published_time" content="{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">
+    {{- else if not .Date.IsZero }}
+    <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">{{ end }}
+    {{- if not .Lastmod.IsZero }}
+    <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">{{ end }}
+    {{- end }}
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    <meta property="og:locale" content="{{ .Site.LanguageCode }}">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Arvo:400,700">
     {{ $styles := resources.Get "scss/main.scss" | toCSS (dict "targetPath" "css/main.css" "enableSourceMap" true) | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
     <link href="{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
@@ -30,15 +39,12 @@
   </head>
 
   <body>
-    <div class="container">
+    <header class="site-header">
+      <div class="container">
+        <a href="/">
+          <img src="{{ .Site.Params.logo }}">
+        </a>
+      </div>
+    </header>
 
-      {{ if .IsHome -}}
-      <header class="site-header">
-        <h1>{{ .Site.Title }}</h1>
-        <p>{{ .Site.Params.tagline }}</p>
-      </header>
-      {{- else -}}
-      <nav class="site-nav">
-        <a href="{{ .Site.BaseURL }}">Index</a>
-      </nav>
-      {{- end }}
+    <div class="container">
