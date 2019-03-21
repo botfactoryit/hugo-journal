@@ -32,9 +32,11 @@
     <meta property="og:site_name" content="{{ .Site.Title }}">
     <meta property="og:locale" content="{{ .Site.LanguageCode }}">
 
-    {{ $styles := resources.Get "scss/main.scss" | toCSS (dict "targetPath" "css/main.css" "enableSourceMap" true) | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
-    <link href="{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+    {{ $styles := resources.Get "scss/main.scss" | toCSS (dict "targetPath" "css/main.css" "enableSourceMap" true) | minify | fingerprint -}}
+    <link rel="stylesheet"
+          href="{{ $styles.RelPermalink }}"
+          integrity="{{ $styles.Data.Integrity }}"
+          media="screen">
 
   </head>
 

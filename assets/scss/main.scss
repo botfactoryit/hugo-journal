@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Work+Sans:400');
+ @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Work+Sans:400,600');
 
 $black: #303030;
 $gray: #686868;
@@ -304,7 +304,11 @@ h6 {
     margin: 1.5rem 0;
 
     p {
-      margin: 0;
+      margin-bottom: 0.5rem;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -323,16 +327,14 @@ h6 {
   .post-footer {
     @extend .post-box-warn;
 
+    margin: 2rem 0;
+
     h6 {
       margin-bottom: 0.5rem;
     }
 
     p {
       margin-bottom: 1.5rem;
-
-      &:last-of-type {
-        margin-bottom: 0;
-      }
     }
   }
 }
