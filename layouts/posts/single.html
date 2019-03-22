@@ -7,17 +7,23 @@
       <span class="post-date">
         Aggiornato il
         <time datetime="{{ .Lastmod.Format "2006-01-02 15:04:05 MST" }}" itemprop="dateModified" content="{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}">
-          {{ .Lastmod.Format "02 january 2006" }}
+          {{ .Lastmod.Format "02/01/2006" }}
         </time>
-        {{ if .Params.authors }}
+        {{ if .Params.authors -}}
         - di
-        {{ $authorLen := len .Params.authors }}
+        {{ $authorLen := len .Params.authors -}}
         <span itemprop="author">
-          {{ range $k, $v := .Params.authors }}
+          {{- range $k, $v := .Params.authors -}}
           {{- $v -}}
-          {{- if lt $k (sub $authorLen 1) -}}, {{ end }}
-          {{ end }}
+          {{- if lt $k (sub $authorLen 1) -}}, {{ end -}}
+          {{- end -}}
         </span>
+        {{ end }}
+
+        {{ range .Params.categories -}}
+        <a href="/{{ . | urlize }}">
+          {{- . | upper -}}
+        </a>
         {{ end }}
       </span>
     </header>

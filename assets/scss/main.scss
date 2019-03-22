@@ -3,6 +3,7 @@
 $black: #303030;
 $gray: #686868;
 $light-gray: #e5e5e5;
+$very-light-gray: #eeeeee;
 $white: #fbfbfb;
 $fc: #43c160;
 $azure: #209cee;
@@ -157,7 +158,7 @@ code {
 article,
 section {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -327,6 +328,22 @@ h6 {
 
     p {
       margin-bottom: 1.5rem;
+    }
+  }
+}
+
+.tags {
+  margin-left: 0;
+
+  li {
+    display: inline;
+    border-radius: .25rem;
+    background-color: $very-light-gray;
+    padding: .25rem;
+
+    a {
+      color: $gray;
+      border: none;
     }
   }
 }
