@@ -293,6 +293,7 @@ h6 {
 
   .post-content {
     font-size: $fs-large;
+    text-align: justify;
   }
 
   %box {
@@ -302,10 +303,10 @@ h6 {
 
     p {
       margin-bottom: 0.5rem;
+    }
 
-      &:last-of-type {
-        margin-bottom: 0;
-      }
+    & > *:last-child {
+      margin-bottom: 0;
     }
   }
 
@@ -319,6 +320,12 @@ h6 {
     @extend %box;
     background-color: $light-yellow;
     border-left: 5px solid $yellow;
+  }
+
+  .post-box-green {
+    @extend %box;
+    background-color: #daf3df;
+    border-left: 5px solid $fc;
   }
 
   .post-footer {
