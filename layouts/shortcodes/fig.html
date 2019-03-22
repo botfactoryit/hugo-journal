@@ -1,9 +1,15 @@
 <figure>
+  {{- if not (.Get "nolink") }}
+  <a href="{{ .Get "src" }}" target="_blank">
+  {{- end }}
+
   <img src="{{ .Get "src" }}" {{ with .Get "alt" }}alt="{{ . }}" {{ end }}class="representation">
+
+  {{- if not (.Get "nolink") }}
+  </a>
+  {{- end }}
+
   <figcaption>
     {{ .Get "caption" }}
-    {{- if not (.Get "nolink") }}
-    <a class="original" href="{{ .Get "src" }}" target="_blank">🔗</a>
-    {{- end }}
   </figcaption>
 </figure>
