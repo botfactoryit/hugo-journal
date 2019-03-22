@@ -20,11 +20,12 @@
         </span>
         {{ end }}
 
-        {{ range .Params.categories -}}
-        <a href="/{{ . | urlize }}">
-          {{- . | upper -}}
-        </a>
-        {{ end }}
+        <ul class="categories">
+          {{ range .Params.categories -}}
+          <li><a href="/{{ . | urlize }}">{{ . }}</a></li>
+          {{- end }}
+        </ul>
+        
       </span>
     </header>
 

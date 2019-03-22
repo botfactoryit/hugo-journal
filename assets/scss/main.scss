@@ -269,7 +269,7 @@ h6 {
 .post {
 
   .post-header {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     text-align: center;
   }
 
@@ -285,6 +285,10 @@ h6 {
     display: block;
     margin: 0 auto;
     width: 4rem;
+  }
+
+  .categories {
+    margin-top: 0.5rem;
   }
 
   .post-content {
@@ -332,7 +336,7 @@ h6 {
   }
 }
 
-.tags {
+.categories {
   margin-left: 0;
 
   li {
@@ -340,6 +344,11 @@ h6 {
     border-radius: .25rem;
     background-color: $very-light-gray;
     padding: .25rem;
+    margin-left: 0.4rem;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
 
     a {
       color: $gray;

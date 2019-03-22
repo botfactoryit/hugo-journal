@@ -5,10 +5,10 @@
     <section>
       <h1>Categorie</h1>
 
-      <ul class="tags">
-        {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+      <ul class="categories">
+        {{ range $name, $taxonomy := .Site.Taxonomies.categories -}}
         <li><a href="/{{ $name | urlize  }}">{{ $name }}</a></li>
-        {{ end }}
+        {{- end }}
       </ul>
     </section>
 
