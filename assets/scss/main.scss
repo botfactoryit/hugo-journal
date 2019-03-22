@@ -74,12 +74,8 @@ figure {
 figcaption {
   padding: 0 .5rem .5rem;
   font-size: .8125rem;
-  text-align: right;
-
-  .original::before {
-    content: ' ';
-    display: block;
-  }
+  text-align: left;
+  color: $gray;
 }
 
 img {
