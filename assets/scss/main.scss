@@ -17,7 +17,7 @@ $fs-small: 0.875rem;
 $fs: 1rem;
 $fs-large: 1.125rem;
 $std-margin: 0 0 1rem;
-$break-small: 700px;
+$break-small: 768px;
 
 *,
 *::before,
@@ -197,7 +197,7 @@ h6 {
 
 .container {
   width: 100%;
-  max-width: 38rem;
+  max-width: 40rem;
   margin: 0 auto;
   padding: 1rem;
 
@@ -223,6 +223,10 @@ h6 {
 
   .container {
     padding: 0.5rem 1rem;
+
+    @media screen and (min-width: $break-small) {
+      padding: 0.5rem 0;
+    }
   }
 }
 
