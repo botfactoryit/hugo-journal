@@ -17,7 +17,7 @@ $fs-small: 0.875rem;
 $fs: 1rem;
 $fs-large: 1.125rem;
 $std-margin: 0 0 1rem;
-$break-small: 800px;
+$break-small: 700px;
 
 *,
 *::before,
@@ -199,7 +199,7 @@ h6 {
   width: 100%;
   max-width: 38rem;
   margin: 0 auto;
-  padding: .5rem;
+  padding: 1rem;
 
   @media screen and (min-width: $break-small) {
     padding: 1rem 0;
@@ -222,17 +222,13 @@ h6 {
   }
 
   .container {
-    padding: 0.5rem 0;
+    padding: 0.5rem 1rem;
   }
 }
 
 .site-footer {
-  margin: 3rem 0 0;
+  margin: 3rem 0 .5rem 0;
   font-size: .8125rem;
-
-  @media screen and (min-width: $break-small) {
-    margin-bottom: .5rem;
-  }
 }
 
 .posts {
