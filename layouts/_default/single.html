@@ -10,7 +10,7 @@
           {{ .Lastmod.Format "02/01/2006" }}
         </time>
         {{ if .Params.authors -}}
-        - di
+        - Scritto da
         {{ $authorLen := len .Params.authors -}}
         <span itemprop="author">
           {{- range $k, $v := .Params.authors -}}
