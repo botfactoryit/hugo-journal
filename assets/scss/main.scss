@@ -105,6 +105,7 @@ a {
   border-bottom: 1px solid currentColor;
   color: currentColor;
   text-decoration: none;
+  word-wrap: break-word;
 
   &:hover {
     border-bottom-color: currentColor;
@@ -193,6 +194,10 @@ h5 {
 
 h6 {
   font-size: 1rem;
+}
+
+sup {
+  padding: 0 0.2rem;
 }
 
 .container {
@@ -339,6 +344,10 @@ h6 {
     p {
       margin-bottom: 1.5rem;
     }
+  }
+
+  .footnotes {
+    text-align: left;
   }
 }
 
