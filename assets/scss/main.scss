@@ -296,8 +296,23 @@ sup {
     margin-top: 0.5rem;
   }
 
-  .post-content {
+  .post-content p {
     text-align: justify;
+  }
+
+  .hanchor {
+    font-size: 50%;
+    padding-left: 0.3rem;
+    border: none;
+    visibility: hidden;
+    position: relative;
+    bottom: 0.2rem;
+  }
+
+  h2:hover a,
+  h3:hover a,
+  h4:hover a {
+    visibility: visible;
   }
 
   %box {
