@@ -210,21 +210,56 @@ sup {
   @media screen and (min-width: $break-small) {
     padding: 1rem 0;
   }
+
+  &::before, &::after {
+    content: '';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
 }
 
-.site-header,
-.site-nav {
+.site-header {
   margin-bottom: 1rem;
   border-top: 4px solid $fc;
   border-bottom: 1px solid #e4f6e9;
-  line-height: 0;
 
   a {
     border: none;
   }
 
-  img {
-    width: 260px;
+  .logo-wrapper {
+    float: left;
+    line-height: 0;
+
+    img {
+      width: 260px;
+      max-width: 100%;
+    }
+  }
+
+  .header-links {
+    float: left;
+    margin-left: 1.5rem;
+    display: none;
+
+    @media screen and (min-width: $break-small) {
+      display: block;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      > li {
+        display: inline-block;
+        color: $gray;
+        font-size: 0.8rem;
+      }
+    }
   }
 
   .container {
