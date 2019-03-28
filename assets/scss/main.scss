@@ -341,7 +341,9 @@ sup {
     margin-top: 0.5rem;
   }
 
-  .post-content p {
+  .post-content p,
+  .post-content ul, 
+  .post-content ol {
     text-align: justify;
   }
 
