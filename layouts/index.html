@@ -1,6 +1,6 @@
 {{ partial "top.html" . }}
 
-  <article class="posts">
+  <article class="home">
 
     <section>
       <h1>Benvenuto/a!</h1>
@@ -20,7 +20,7 @@
       </ul>
     </section>
 
-    <section>
+    <section class="posts">
       <h1>Ultimi aggiornamenti</h1>
       <ol>
         {{ range .Pages.ByLastmod.Reverse -}}
