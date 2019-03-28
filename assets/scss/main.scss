@@ -1,9 +1,10 @@
- @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Work+Sans:400,600');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Work+Sans:400,600');
 
 $black: #303030;
 $gray: #686868;
-$light-gray: #e5e5e5;
-$very-light-gray: #eeeeee;
+$gray2: #7f7f7f;
+$gray3: #e5e5e5;
+$gray4: #eeeeee;
 $white: #fbfbfb;
 $fc: #43c160;
 $light-fc: #daf3df;
@@ -86,7 +87,7 @@ img {
 
 blockquote {
   padding: 1rem;
-  border-left: 5px solid $light-gray;
+  border-left: 5px solid $gray3;
   color: $gray;
   font-style: italic;
 
@@ -154,7 +155,7 @@ kbd,
 code {
   margin: 0;
   padding: .125rem .25rem 0;
-  background-color: $light-gray;
+  background-color: $gray3;
 }
 
 article,
@@ -304,9 +305,10 @@ sup {
   time {
     display: block;
     margin-right: 1rem;
+    color: $gray2;
 
     @media screen and (min-width: $break-small) {
-      flex: 0 0 5rem;
+      flex: 0 0 3rem;
       margin-right: 2rem;
     }
 
@@ -331,10 +333,10 @@ sup {
   }
 
   .post-line {
-    border-top: 0.4rem solid $black;
+    border-top: 0.1rem solid $gray2;
     display: block;
     margin: 0 auto;
-    width: 4rem;
+    width: 8rem;
   }
 
   .categories {
@@ -349,7 +351,7 @@ sup {
 
   #TableOfContents {
     display: inline-block;
-    background-color: $very-light-gray;
+    background-color: $gray4;
     padding: 0.7rem 1rem;
     font-size: 0.9rem;
 
@@ -439,8 +441,8 @@ sup {
   li {
     display: inline;
     border-radius: .25rem;
-    background-color: $very-light-gray;
-    padding: .25rem;
+    background-color: $gray4;
+    padding: .2rem 0.4rem;
     margin-right: 0.4rem;
 
     a {
