@@ -33,11 +33,7 @@ html {
   color: $black;
 
   font-family: $body, sans-serif;
-  font-size: $fs;
-
-  @media screen and (min-width: $break-small) {
-    font-size: $fs-large;
-  }
+  font-size: $fs-large;
 }
 
 body {
