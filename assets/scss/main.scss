@@ -68,9 +68,21 @@ hr {
 }
 
 figure {
-  .representation {
+  img {
     display: block;
     margin: 0 0 .5rem;
+  }
+
+  &.vertical {
+    img {
+      max-height: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    figcaption {
+      text-align: center;
+    }
   }
 }
 
