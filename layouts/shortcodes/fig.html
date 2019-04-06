@@ -10,6 +10,6 @@
   {{- end }}
 
   <figcaption>
-    {{ .Get "caption" }}
+    {{ .Get "caption" | markdownify }}
   </figcaption>
 </figure>
