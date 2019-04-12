@@ -20,6 +20,8 @@
           </span>
           {{ end }}
 
+          <br>{{ .ReadingTime }} minuti di lettura
+
           <ul class="categories">
             {{ range .Params.categories -}}
             <li><a href="/{{ . | urlize }}">{{ . }}</a></li>
