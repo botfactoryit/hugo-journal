@@ -20,7 +20,7 @@
           </span>
           {{ end }}
 
-          <br>{{ .ReadingTime }} minuti di lettura
+          {{ if gt .ReadingTime 1 }}<br>{{ .ReadingTime }} minuti di lettura{{ end }}
 
           <ul class="categories">
             {{ range .Params.categories -}}
