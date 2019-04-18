@@ -45,6 +45,13 @@ body {
   margin: 0;
 }
 
+::selection {
+  background: $light-fc; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: $light-fc; /* Gecko Browsers */
+}
+
 h1,
 p,
 figure,
