@@ -15,7 +15,7 @@
 
       <ul class="categories">
         {{ range $name, $taxonomy := .Site.Taxonomies.categories -}}
-        <li><a href="/{{ $name | urlize  }}">{{ $name }}</a></li>
+        <li><a href="/c/{{ $name | urlize  }}">{{ $name }}</a></li>
         {{- end }}
       </ul>
     </section>

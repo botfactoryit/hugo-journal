@@ -24,7 +24,7 @@
 
           <ul class="categories">
             {{ range .Params.categories -}}
-            <li><a href="/{{ . | urlize }}">{{ . }}</a></li>
+            <li><a href="/c/{{ . | urlize }}">{{ . }}</a></li>
             {{- end }}
           </ul>
           
