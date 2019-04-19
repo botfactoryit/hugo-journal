@@ -12,6 +12,7 @@ $azure: #209cee;
 $light-azure: #def0fd;
 $yellow: #edc43c;
 $light-yellow: #f5ecce;
+$highlight: #a4e3b0;
 
 $title: 'Montserrat';
 $body: 'Work Sans';
@@ -46,10 +47,7 @@ body {
 }
 
 ::selection {
-  background: $light-fc; /* WebKit/Blink Browsers */
-}
-::-moz-selection {
-  background: $light-fc; /* Gecko Browsers */
+  background: $highlight;
 }
 
 h1,
