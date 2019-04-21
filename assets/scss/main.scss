@@ -435,7 +435,6 @@ sup {
   .post-footer {
     @extend .post-box-warn;
 
-    text-align: left;
     margin: 2rem 0;
 
     h6 {
@@ -444,6 +443,7 @@ sup {
 
     p {
       margin-bottom: 1.5rem;
+      text-align: left;
     }
   }
 
