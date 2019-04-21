@@ -6,29 +6,38 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="canonical" href="{{ .Permalink }}">
+    {{ with .Permalink }}
+    <link rel="canonical" href="{{ . }}">
+    <meta property="og:url" content="{{ . }}">
+    {{ end }}
 
-    {{ if .IsHome -}}
+    {{ if eq .Permalink "" -}}
+    <title>Pagina non trovata - {{ .Site.Title }}</title>
+    <meta property="og:title" content="Pagine non trovata - {{ .Site.Title }}">
+    {{- else if .IsHome -}}
     <title>{{ .Site.Title }}</title>
     <meta property="og:title" content="{{ .Site.Title }}">
-    <meta property="og:type" content="website">
     <meta name="description" content="{{ .Site.Params.description }}">
-    {{- else -}}
+    <meta property="og:description" content="{{ .Site.Params.description }}">
+    {{- else if .IsPage -}}
     <title>{{ .Title }} - {{ .Site.Title }}</title>
-    <meta name="description" content="{{ .Description }}">
     <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
     <meta property="og:type" content="article">
+    <meta name="description" content="{{ .Description }}">
     <meta property="og:description" content="{{ .Description }}">
-    {{- end }}
-    <meta property="og:url" content="{{ .Permalink }}">
-    {{- if .IsPage }}
     {{- if not .PublishDate.IsZero }}
     <meta property="article:published_time" content="{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">
     {{- else if not .Date.IsZero }}
-    <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">{{ end }}
+    <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">
+    {{ end }}
     {{- if not .Lastmod.IsZero }}
-    <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">{{ end }}
+    <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">
+    {{ end }}
+    {{- else -}}
+    <title>Articoli in "{{ .Title }}" - {{ .Site.Title }}</title>
+    <meta property="og:title" content="Articoli in &quot;{{ .Title }}&quot; - {{ .Site.Title }}">
     {{- end }}
+
     <meta property="og:site_name" content="{{ .Site.Title }}">
     <meta property="og:locale" content="{{ .Site.LanguageCode }}">
 
@@ -55,7 +64,7 @@
     <script>
     document.addEventListener('DOMContentLoaded', function () {
       document.querySelectorAll('article h2[id], article h3[id], article h4[id]').forEach(function(element) {
-        element.insertAdjacentHTML('beforeend', '<a href="#' + element.id + '" class="hanchor" ariaLabel="Anchor">🔗</a>');
+        element.insertAdjacentHTML('beforeend', '<a href="#' + element.id + '" class="hanchor" ariaLabel="Ancora">🔗</a>');
       });
     });
     </script>
