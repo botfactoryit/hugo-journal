@@ -72,18 +72,62 @@
 
   <body>
     <header class="site-header">
-      <div class="container">
-        <a class="logo-wrapper" href="/">
-          <img src="{{ .Site.Params.logo }}">
+      <div class="desktop">
+        <a href="/">
+          <img class="logo" alt="Logo FibraClick" src="{{ .Site.Params.logo }}">
         </a>
 
-        <nav class="header-links">
+        <nav>
+          <a target="_blank" href="https://forum.fibra.click" class="hl">Vai al forum</a>
+          <a href="{{ relref . "/link-utili.md" }}">Link utili</a>
+
+          <span class="separator">|</span>
+          
+          <div class="social">
+            <a href="https://t.me/FibraClick" target="_blank">
+              <img src="/images/social_telegram.svg">
+            </a>
+            <a href="https://twitter.com/FibraClick" target="_blank">
+              <img src="/images/social_twitter.svg">
+            </a>
+            <a href="https://www.facebook.com/FibraClick/" target="_blank">
+              <img src="/images/social_facebook.svg">
+            </a>
+          </div>
+        </nav>
+      </div>
+      
+      <div class="mobile">
+        <a href="/" class="logo-wrapper">
+          <img class="logo" alt="Logo FibraClick" src="{{ .Site.Params.logo }}">
+        </a>
+
+        <input id="burger" type="checkbox" />
+        
+        <label for="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      
+        <nav>
           <ul>
-            <li><a href="https://forum.fibra.click" target="_blank">vai al forum</a></li>
-            <li><a href="{{ relref . "/link-utili.md" }}">link utili</a></li>
+            <li><a class="hl" href="https://forum.fibra.click">Vai al forum</a></li>
+            <li><a href="{{ relref . "/link-utili.md" }}">Link utili</a></li>
+            <li class="social">
+              <a href="https://t.me/FibraClick" target="_blank">
+                <img src="/images/social_telegram.svg">
+              </a>
+              <a href="https://twitter.com/FibraClick" target="_blank">
+                <img src="/images/social_twitter.svg">
+              </a>
+              <a href="https://www.facebook.com/FibraClick/" target="_blank">
+                <img src="/images/social_facebook.svg">
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <div class="container">
+    <div id="main" class="container">
