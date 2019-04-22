@@ -74,7 +74,7 @@
     <header class="site-header">
       <div class="desktop">
         <a href="/">
-          <img class="logo" alt="Logo FibraClick" src="{{ .Site.Params.logo }}">
+          <img class="logo" alt="Logo FibraClick" src="{{ (resources.Get "logo.svg" | fingerprint).RelPermalink }}">
         </a>
 
         <nav>
@@ -99,7 +99,7 @@
       
       <div class="mobile">
         <a href="/" class="logo-wrapper">
-          <img class="logo" alt="Logo FibraClick" src="{{ .Site.Params.logo }}">
+          <img class="logo" alt="Logo FibraClick" src="{{ (resources.Get "logo.svg" | fingerprint).RelPermalink }}">
         </a>
 
         <input id="burger" type="checkbox" />
