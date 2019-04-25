@@ -38,13 +38,20 @@
     <meta property="og:title" content="Articoli in &quot;{{ .Title }}&quot; - {{ .Site.Title }}">
     {{- end }}
 
-    {{ if .IsNode }}
+    {{ if or (.IsNode) ( and (.IsPage) (not (isset .Params "image")) )  }}
     <meta property="og:image" content="{{ "cover-fb.jpg" | absURL }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@FibraClick">
     <meta name="twitter:image" content="{{ "cover-tw.jpg" | absURL }}">
+    {{ else }}
+    <meta property="og:image" content="{{ .Params.image | absURL }}">
+    <meta property="og:image:width" content="{{ (imageConfig (printf "/static%s" .Params.image)).Width }}">
+    <meta property="og:image:height" content="{{ (imageConfig (printf "/static%s" .Params.image)).Height }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@FibraClick">
+    <meta name="twitter:image" content="{{ .Params.image | absURL }}">
     {{ end }}
 
     <meta property="og:site_name" content="{{ .Site.Title }}">
