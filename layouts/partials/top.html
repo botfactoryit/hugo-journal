@@ -38,10 +38,13 @@
     <meta property="og:title" content="Articoli in &quot;{{ .Title }}&quot; - {{ .Site.Title }}">
     {{- end }}
 
-    {{ with .Page.Params.fb }}
-    <meta property="og:image" content="{{ . }}">
-    <meta property="og:image:width" content="{{ (imageConfig (printf "/static%s" .)).Width }}">
-    <meta property="og:image:height" content="{{ (imageConfig (printf "/static%s" .)).Height }}">
+    {{ if .IsNode }}
+    <meta property="og:image" content="{{ "cover-fb.jpg" | absURL }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@FibraClick">
+    <meta name="twitter:image" content="{{ "cover-tw.jpg" | absURL }}">
     {{ end }}
 
     <meta property="og:site_name" content="{{ .Site.Title }}">
