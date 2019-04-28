@@ -15,8 +15,8 @@
     <title>Pagina non trovata - {{ .Site.Title }}</title>
     <meta property="og:title" content="Pagine non trovata - {{ .Site.Title }}">
     {{- else if .IsHome -}}
-    <title>{{ .Site.Title }}</title>
-    <meta property="og:title" content="{{ .Site.Title }}">
+    <title>{{ .Site.Params.homeTitle }}</title>
+    <meta property="og:title" content="{{ .Site.Params.homeTitle }}">
     <meta name="description" content="{{ .Site.Params.description }}">
     <meta property="og:description" content="{{ .Site.Params.description }}">
     {{- else if .IsPage -}}
