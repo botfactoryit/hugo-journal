@@ -11,6 +11,10 @@
     <meta property="og:url" content="{{ . }}">
     {{ end }}
 
+    {{- if .Params.hidden -}}
+    <meta name="robots" value="noindex">
+    {{- end }}
+
     {{ if eq .Permalink "" -}}
     <title>Pagina non trovata - {{ .Site.Title }}</title>
     <meta property="og:title" content="Pagine non trovata - {{ .Site.Title }}">
