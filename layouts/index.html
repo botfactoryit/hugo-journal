@@ -21,7 +21,19 @@
     <section class="posts">
       <h1>Ultimi aggiornamenti</h1>
       <ol>
-        {{ range (where (where .Pages "Type" "posts") ".Params.hidden" "!=" true).ByLastmod.Reverse -}}
+        {{ range first 5 (where (where .Pages "Type" "posts") ".Params.hidden" "!=" true).ByLastmod.Reverse -}}
+        <li>
+          <time datetime="{{ .Lastmod.Format "2006-01-02 15:04:05 MST" }}">{{ .Lastmod.Format "02/01"}}</time>
+          📄 <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{- end }}
+      </ol>
+    </section>
+
+    <section class="posts">
+      <h1>Tutti gli articoli</h1>
+      <ol>
+        {{ range (where (where .Pages "Type" "posts") ".Params.hidden" "!=" true).ByTitle -}}
         <li>
           <time datetime="{{ .Lastmod.Format "2006-01-02 15:04:05 MST" }}">{{ .Lastmod.Format "02/01"}}</time>
           📄 <a href="{{ .RelPermalink }}">{{ .Title }}</a>
