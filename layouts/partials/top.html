@@ -95,6 +95,11 @@
       });
     });
     </script>
+
+    {{ with .Site.Params.Propaganda -}}
+    {{ $js := resources.Get "js/propaganda.js" |  minify | fingerprint -}}
+    <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+    {{- end }}
   </head>
 
   <body>
