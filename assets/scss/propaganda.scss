@@ -26,7 +26,8 @@
 .propaganda-body {
     padding: 2rem;
     border-radius: 10px;
-    background-color: #efefef;
+    background-color: $light-fc;
+    color: #0f7526;
 }
 
 @media screen and (max-width: $break-propaganda) {
