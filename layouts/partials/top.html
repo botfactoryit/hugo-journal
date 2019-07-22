@@ -96,9 +96,11 @@
     });
     </script>
 
-    {{ with .Site.Params.Propaganda -}}
+    {{ if .Site.Params.Propaganda -}}
+    {{ if and (.Section) (eq .Section "posts") }}
     {{ $js := resources.Get "js/propaganda.js" |  minify | fingerprint -}}
     <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+    {{- end }}
     {{- end }}
   </head>
 
