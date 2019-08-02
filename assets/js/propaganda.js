@@ -1,15 +1,37 @@
 window.propaganda = {
     template: `
-<aside class="propaganda">
+<div class="propaganda">
     <div class="propaganda-title">Una piccola interruzione. <span>L'articolo prosegue sotto ↓</span></div>
-    
-    <div class="propaganda-body">
-        L'articolo ti sta piacendo?
-        <strong>Seguici su <a target="_blank" href="https://t.me/FibraClick">Telegram</a>, <a target="_blank" href="https://www.facebook.com/fibraclick">Facebook</a> e <a target="_blank" href="https://twitter.com/fibraclick">Twitter</a></strong> per ricevere aggiornamenti sugli articoli della wiki e le novità più importanti sulla banda ultralarga in Italia.
-    </div>
-</aside>`,
+
+    {content}
+</div>
+`,
+
+    init: function(baseUrl) {
+        window.propaganda.baseUrl = baseUrl;
+        window.onload = window.propaganda.onLoad;
+
+        console.log('[Propaganda] Init:', baseUrl);
+    },
 
     onLoad: function () {
+        var node = window.propaganda.findNode();
+
+        console.log('[Propaganda] Chosen node:', node);
+
+        if (node) {
+            console.log('[Propaganda] Requesting pre-serve...');
+
+            window.propaganda.preServe(function (res) {
+                var inject = window.propaganda.template.replace('{content}', res.source);
+                node.insertAdjacentHTML('beforebegin', inject);
+
+                console.log('[Propaganda] Injected', res);
+            });
+        }
+    },
+
+    findNode: function() {
         var postHeight = document.querySelector('.post-content').offsetHeight;
         var half = postHeight / 2;
         var nodes = document.querySelectorAll('h2');
@@ -36,8 +58,29 @@ window.propaganda = {
             }
         }
 
-        putBeforeThis.insertAdjacentHTML('beforebegin', window.propaganda.template);
+        return putBeforeThis;
+    },
+
+    preServe: function(cb) {
+        var request = new XMLHttpRequest();
+        
+        var w = document.documentElement.clientWidth;
+
+        request.open('GET', window.propaganda.baseUrl + '/pre-serve?clientWidth=' + w, true);
+
+        request.onload = function () {
+            if (this.status == 200) {
+                cb(JSON.parse(this.response));
+            }
+            else {
+                console.error('[Propaganda] Response:', this.status, this.response);
+            }
+        };
+
+        request.onerror = function() {
+            console.error('[Propaganda] Net error');
+        };
+
+        request.send();
     }
 };
-
-window.onload = window.propaganda.onLoad;
