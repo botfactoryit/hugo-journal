@@ -103,6 +103,23 @@
     <script>window.propaganda.init('{{ .Site.Params.PropagandaBaseUrl }}');</script>
     {{- end }}
     {{- end }}
+
+    {{- if .Params.dynamic }}
+    <script src="/js/mithril.min.js"></script>
+    {{- end }}
+
+    {{- range .Params.js }}
+    {{ $js := resources.Get (printf "js/%s" .) |  minify | fingerprint -}}
+    <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+    {{- end }}
+
+    {{- range .Params.scss }}
+    {{ $styles := resources.Get (printf "scss/%s" .) | toCSS (dict "targetPath" (printf "css/%s.css" (replace . ".scss" ".css")) "enableSourceMap" true) | minify | fingerprint -}}
+    <link rel="stylesheet"
+          href="{{ $styles.RelPermalink }}"
+          integrity="{{ $styles.Data.Integrity }}"
+          media="screen">
+    {{- end }}
   </head>
 
   <body>
