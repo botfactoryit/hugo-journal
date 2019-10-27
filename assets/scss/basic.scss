@@ -214,7 +214,7 @@ sup {
 #main {
   margin-top: 80px;
 
-  @media screen and (min-width: $break-small) {
+  @media screen and (min-width: $break-menu) {
     margin-top: 0;
   }
 }

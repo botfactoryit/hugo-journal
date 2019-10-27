@@ -13,12 +13,8 @@
     margin: 1rem auto;
     display: none;
 
-    @media screen and (min-width: $break-small) {
+    @media screen and (min-width: $break-menu) {
       display: block;
-    }
-
-    @media screen and (max-width: $break-menu) {
-      max-width: 40rem;
     }
 
     .logo {
@@ -75,7 +71,7 @@
   } // nav
 
   .mobile {
-    @media screen and (min-width: $break-small) {
+    @media screen and (min-width: $break-menu) {
       display: none;
     }
 
