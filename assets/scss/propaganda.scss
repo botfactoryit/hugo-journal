@@ -5,7 +5,7 @@
     margin: 3rem -6rem;
 }
 
-.propaganda-title {
+.propaganda-header {
     margin: 0;
     padding: 0.25rem 0 1rem 0;
     font-size: 0.75rem;
@@ -23,6 +23,14 @@
     }
 }
 
+.propaganda-title {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #000;
+    margin-bottom: 10px;
+}
+
 .propaganda-text {
     padding: 2rem;
     border-radius: 10px;
@@ -34,5 +42,47 @@
     .propaganda {
         margin-left: 0;
         margin-right: 0;
+    }
+}
+
+.propaganda #mc_embed_signup {
+    #mce-EMAIL {
+        width: 350px;
+        margin: 1.5rem 0 0;
+        border: 2px solid #ABB0B2;
+        padding: 13px 18px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        font-family: $body;
+        font-size: 1rem;
+    }
+
+    #mc-embedded-subscribe {
+        font-family: $body;
+        font-size: 1rem;
+        letter-spacing: .03em;
+        color: #fff;
+        background-color: #43c160;
+        padding: 14px 20px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        margin: 0;
+        cursor: pointer;
+        border: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+    @media screen and (max-width: 600px) {
+        #mce-EMAIL {
+            width: 100%;
+        }
+
+        #mc-embedded-subscribe {
+            margin-top: 10px;
+            width: 100%;
+        }
     }
 }

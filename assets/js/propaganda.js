@@ -1,33 +1,40 @@
 window.propaganda = {
     template: `
 <div class="propaganda">
-    <div class="propaganda-title">Una piccola interruzione. <span>L'articolo prosegue sotto ↓</span></div>
+    <div class="propaganda-header">Una piccola interruzione. <span>L'articolo prosegue sotto ↓</span></div>
 
-    {content}
+    <div class="propaganda-text">
+        <span class="propaganda-title">Non perderti gli aggiornamenti.</span><br>
+        Iscriviti a <strong>Riflessione ottica</strong>, la newsletter settimanale di FibraClick. <strong>Ogni domenica le principali novità sulla banda larga in Italia, spiegate in 5 minuti.</strong>
+        
+        <div id="mc_embed_signup">
+          <form action="https://click.us20.list-manage.com/subscribe/post?u=43e7f0aa512956e35c8d37395&amp;id=8d73a21b79&amp;SIGNUP=propaganda" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+              <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Il tuo indirizzo email..." required>
+              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_43e7f0aa512956e35c8d37395_8d73a21b79" tabindex="-1" value=""></div>
+              <input type="submit" value="ISCRIVITI" name="subscribe" id="mc-embedded-subscribe">
+          </form>
+        </div>
+
+        <!--Seguici anche su <a target="_blank" href="https://t.me/FibraClick">Telegram</a>, <a target="_blank" href="https://www.facebook.com/fibraclick">Facebook</a> e <a target="_blank" href="https://twitter.com/fibraclick">Twitter</a>.-->
+    </div>
 </div>
 `,
 
-    init: function(baseUrl) {
-        window.propaganda.baseUrl = baseUrl;
+    init: function() {
         window.onload = window.propaganda.onLoad;
-
-        console.log('[Propaganda] Init:', baseUrl);
     },
 
     onLoad: function () {
+        console.log('[Propaganda] onLoad');
+
         var node = window.propaganda.findNode();
 
         console.log('[Propaganda] Chosen node:', node);
 
         if (node) {
-            console.log('[Propaganda] Requesting pre-serve...');
+            node.insertAdjacentHTML('beforebegin', window.propaganda.template);
 
-            window.propaganda.preServe(function (res) {
-                var inject = window.propaganda.template.replace('{content}', res.source);
-                node.insertAdjacentHTML('beforebegin', inject);
-
-                console.log('[Propaganda] Injected', res);
-            });
+            console.log('[Propaganda] Injected');
         }
     },
 
@@ -60,27 +67,6 @@ window.propaganda = {
 
         return putBeforeThis;
     },
-
-    preServe: function(cb) {
-        var request = new XMLHttpRequest();
-        
-        var w = document.documentElement.clientWidth;
-
-        request.open('GET', window.propaganda.baseUrl + '/pre-serve?clientWidth=' + w, true);
-
-        request.onload = function () {
-            if (this.status == 200) {
-                cb(JSON.parse(this.response));
-            }
-            else {
-                console.error('[Propaganda] Response:', this.status, this.response);
-            }
-        };
-
-        request.onerror = function() {
-            console.error('[Propaganda] Net error');
-        };
-
-        request.send();
-    }
 };
+
+window.propaganda.init();
