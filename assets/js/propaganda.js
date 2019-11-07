@@ -8,7 +8,7 @@ window.propaganda = {
         Iscriviti a <strong>Riflessione ottica</strong>, la newsletter settimanale di FibraClick. <strong>Ogni domenica le principali novità sulla banda larga in Italia, spiegate in 5 minuti.</strong>
         
         <div id="mc_embed_signup">
-          <form action="https://click.us20.list-manage.com/subscribe/post?u=43e7f0aa512956e35c8d37395&amp;id=8d73a21b79&amp;SIGNUP=propaganda" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+          <form action="https://click.us20.list-manage.com/subscribe/post?u=43e7f0aa512956e35c8d37395&amp;id=8d73a21b79&amp;SIGNUP=propaganda&amp;WIKIURL={url}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
               <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Il tuo indirizzo email..." required>
               <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_43e7f0aa512956e35c8d37395_8d73a21b79" tabindex="-1" value=""></div>
               <input type="submit" value="ISCRIVITI" name="subscribe" id="mc-embedded-subscribe">
@@ -32,7 +32,12 @@ window.propaganda = {
         console.log('[Propaganda] Chosen node:', node);
 
         if (node) {
-            node.insertAdjacentHTML('beforebegin', window.propaganda.template);
+            var url = encodeURIComponent(location.href);
+            var html = window.propaganda.template.replace('{url}', url);
+
+            console.log('[Propaganda] Injecting with URL:', url);
+
+            node.insertAdjacentHTML('beforebegin', html);
 
             console.log('[Propaganda] Injected');
         }
