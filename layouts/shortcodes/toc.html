@@ -1,8 +1,1 @@
-<!-- https://github.com/gohugoio/hugo/issues/1778#issuecomment-423788811 -->
-{{ $toc := .Page.TableOfContents }}
-{{ $toc := (replace $toc "<ul>\n<li>\n<ul>" "<ul>") }}
-{{ $toc := (replace $toc "<ul>\n<li>\n<ul>" "<ul>") }}
-{{ $toc := (replace $toc "</ul></li>\n</ul>" "</ul>") }}
-{{ $toc := (replace $toc "</li>\n</ul></li>" "</ul>") }}
-
-{{ safeHTML $toc }}
+{{ .Page.TableOfContents }}

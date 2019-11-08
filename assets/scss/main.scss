@@ -93,12 +93,11 @@
       list-style: none;
     }
 
-    > ul {
+    > ul { // h1, always empty. See Hugo bug #1778
       margin: 0;
 
-      > li > ul {
-        margin-top: 0.7rem;
-        margin-bottom: 0.7rem;
+      > li > ul { // h2, first real heading level
+        margin: 0;
       }
     }
   }
