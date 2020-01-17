@@ -91,14 +91,23 @@
 
     ul {
       list-style: none;
+
+      li { 
+        margin: 0;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+      
+      li a {
+        display: inline-block;
+        margin-bottom: 0.4rem;
+      }
     }
 
-    > ul { // h1, always empty. See Hugo bug #1778
+    > ul {
       margin: 0;
-
-      > li > ul { // h2, first real heading level
-        margin: 0;
-      }
     }
   }
 
@@ -164,8 +173,12 @@
     }
   }
 
-  .footnotes li {
+  .footnotes li p {
     text-align: left;
+
+    .footnote-backref {
+      border: 0;
+    }
   }
 }
 
