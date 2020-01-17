@@ -4,9 +4,8 @@
 
     <h1>Articoli in "{{ .Title }}"</h1>
     <ol>
-        {{ range (where .Pages ".Params.hidden" "!=" true).ByLastmod.Reverse -}}
+        {{ range (where .Pages ".Params.hidden" "!=" true).ByTitle.Reverse -}}
         <li>
-            <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "02/01"}}</time>
             📄 <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         </li>
         {{- end }}

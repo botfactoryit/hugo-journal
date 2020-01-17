@@ -33,22 +33,23 @@
 
     display: flex;
     flex-direction: row;
-  }
 
-  time {
-    display: block;
-    flex: 0 0 3rem;
-    margin-right: 1rem;
-    color: $gray2;
+    time {
+      display: block;
+      flex: 0 0 3rem;
+      margin-right: 1rem;
+      color: $gray2;
 
-    @media screen and (min-width: $break-small) {
-      margin-right: 2rem;
+      @media screen and (min-width: $break-small) {
+        margin-right: 2rem;
+      }
     }
-
-    + a {
+  
+    a {
       margin-left: 0.3rem;
     }
   }
+
 }
 
 .post {
