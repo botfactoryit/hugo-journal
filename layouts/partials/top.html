@@ -101,13 +101,13 @@
     <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
     {{- end }}
 
-    {{- if .Params.dynamic }}
-    <script src="/js/mithril.min.js"></script>
-    {{- end }}
-
     {{- range .Params.js }}
     {{ $js := resources.Get (printf "js/%s" .) |  minify | fingerprint -}}
     <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+    {{- end }}
+
+    {{- range .Params.rawjs }}
+    <script src="/js/{{ . }}"></script>
     {{- end }}
 
     {{- range .Params.scss }}
