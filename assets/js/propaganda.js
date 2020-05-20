@@ -5,7 +5,7 @@ window.propaganda = {
 
     <div class="propaganda-text">
         <span class="propaganda-title">Non perderti gli aggiornamenti.</span><br>
-        Iscriviti a <strong>Riflessione ottica</strong>, la newsletter settimanale di FibraClick. <strong>Ogni domenica le principali novità sulla banda larga e il digitale in Italia, spiegate in 5 minuti.</strong> Niente spam, promesso.
+        Iscriviti a <strong>Riflessione ottica</strong>, la newsletter settimanale di FibraClick. <strong>Ogni domenica le principali novità sulla banda ultra larga e Internet in Italia, spiegate in 5 minuti.</strong> Niente spam, promesso.
         
         <div id="mc_embed_signup">
           <form action="https://click.us20.list-manage.com/subscribe/post?u=43e7f0aa512956e35c8d37395&amp;id=8d73a21b79&amp;SIGNUP=propaganda&amp;WIKIURL={url}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
@@ -56,7 +56,10 @@ window.propaganda = {
                     i--;
                 }
 
-                putBeforeThis = nodes[i];
+                if (nodes[i].offsetTop > half) {
+                    putBeforeThis = nodes[i];
+                }
+
                 break;
             }
         }
