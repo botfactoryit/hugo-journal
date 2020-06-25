@@ -34,18 +34,22 @@
     flex-direction: row;
 
     time {
-      display: block;
-      flex: 0 0 3rem;
-      margin-right: 1rem;
       color: $gray2;
 
-      @media screen and (min-width: $break-small) {
-        margin-right: 2rem;
+      &.time-left {
+        display: block;
+        flex: 0 0 3rem;
+        margin-right: 1rem;
+
+        @media screen and (min-width: $break-small) {
+          margin-right: 2rem;
+        }
       }
     }
   
     a {
       margin-left: 0.3rem;
+      margin-right: 0.5rem;
     }
   }
 

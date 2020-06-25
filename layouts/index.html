@@ -41,8 +41,7 @@
       <ol>
         {{ range first 5 (where (where .Site.RegularPages "Type" "posts") ".Params.hidden" "!=" true).ByLastmod.Reverse -}}
         <li>
-          <time datetime="{{ .Lastmod.Format "2006-01-02 15:04:05 MST" }}">{{ .Lastmod.Format "02/01"}}</time>
-          📄 <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          📄 <a href="{{ .RelPermalink }}">{{ .Title }}</a> <time datetime="{{ .Lastmod.Format "2006-01-02 15:04:05 MST" }}">({{ .Lastmod.Format "02/01"}})</time>
         </li>
         {{- end }}
       </ol>
@@ -53,7 +52,6 @@
       <ol>
         {{ range (where (where .Site.RegularPages "Type" "posts") ".Params.hidden" "!=" true).ByTitle -}}
         <li>
-          <time datetime="{{ .Lastmod.Format "2006-01-02 15:04:05 MST" }}">{{ .Lastmod.Format "02/01"}}</time>
           📄 <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         </li>
         {{- end }}
