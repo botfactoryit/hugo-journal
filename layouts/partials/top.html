@@ -23,7 +23,7 @@
     <meta property="og:title" content="{{ .Site.Params.homeTitle }}">
     <meta name="description" content="{{ .Site.Params.description }}">
     <meta property="og:description" content="{{ .Site.Params.description }}">
-    {{- else if eq .Kind "taxonomy" -}}
+    {{- else if eq .Kind "term" -}}
     <title>Articoli in "{{ .Title }}" - {{ .Site.Title }}</title>
     <meta property="og:title" content="Articoli in &quot;{{ .Title }}&quot; - {{ .Site.Title }}">
     {{- else -}}
